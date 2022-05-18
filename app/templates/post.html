@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mb-2">{{user.user_details.count()}} Posts by {{ user.username }} </h1>
+        <div class="row">
+            <div class="col-md-2">
+                    
+            </div>
+            <div class="col-md-8">
+                {% for user_detail in user_details.items %}
+                    <div class="" >
+                        <hr>
+                        <div class="row">
+                            <div class="card" style="padding: 5%; background-color: transparent;">
+                                <div class="card-image">
+                                    <img class=" user_details-img mr-10" src="{{ url_for('static', filename='img/' + user_details.user.profile_pic_path) }}">
+                                </div>
+                                <div class="card-title">
+                                    <p>By {{user_details.user.username}}</span>  on {{user_details.posted.strftime('%d-%m-%Y')}}</p>
+                                    <h3>Title: <a href="{{url_for('main.user_posts',id = user_details.id)}}">{{user_details.skills_title}}</a></h3>
+
+                                </div>
+                                <div class="card-content">               
+                                    <p >{{user_details.name}}</p>
+                                    <p >{{user_details.description}}</p>
+                                    <p>{{user_details.charges}}</p>
+                                    
+                                </div>
+                                <div class="card-footer">
+                                    <p >{{user_details.contact}}</p>
+                                </div>
+                            </div>
+                            
+                        </div>  
+                        <hr> 
+                    </div>
+                {% endfor %}
+
+                {% for page_num in user_details.iter_pages(left_edge = 1, right_edge = 1, left_current=1, right_current = 2) %}
+                    {% if page_num %}
+                        {% if blogs.page == page_num %}
+                            <a href="{{url_for('main.user_posts',username = user.username,page = page_num)}}" class="btn btn-sm btn-info mb-2">{{ page_num }}</a>
+                        {% else%}
+                        <a href="{{url_for('main.user_posts',username = user.username,page = page_num)}}" class="btn btn-sm btn-outline-info mb-2">{{ page_num }}</a>
+                        {% endif %}
+                    {% else%}
+                        ...
+                    {% endif %}
+                {% endfor %}  
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+   
+{% endblock %}
