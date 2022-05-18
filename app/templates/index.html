@@ -19,7 +19,7 @@
                                     </div>
                                     <div class="card-title" style="text-align: center;">
 
-                                        <h4><a href="{{url_for('main.user_details',id = user_details.id)}}"  class="card-title">{{user_skills_title.title | upper}}</a></h4>
+                                        <h4><a href="{{url_for('main.user_posts',id = user_details.id)}}"  class="card-title">{{user_details.skills_title | upper}}</a></h4>
                                     </div>
                                     <div class="card-body">
                                         <p class="card-content">{{user_details.name}}</p>
