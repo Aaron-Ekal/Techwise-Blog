@@ -1,14 +1,14 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField,FileAllowed
 from wtforms import StringField,TextAreaField, SubmitField,ValidationError
-from wtforms.validators import Required,Email
+from wtforms.validators import InputRequired,Email
 from flask_login import current_user
 from ..models import User
 
 class Update(FlaskForm):
-    username = StringField('Enter Your Username', validators=[Required()])
-    email = StringField('Email Address', validators=[Required(),Email()])
-    bio = TextAreaField('Write a brief bio about you.',validators = [Required()])
+    username = StringField('Enter Your Username', validators=[InputRequired()])
+    email = StringField('Email Address', validators=[InputRequired(),Email()])
+    bio = TextAreaField('Write a brief bio about you.',validators = [InputRequired()])
     profile_picture = FileField('profile picture', validators=[FileAllowed(['jpg','png'])])
     submit = SubmitField('Update')
 
@@ -23,8 +23,8 @@ class Update(FlaskForm):
                 raise ValidationError("The username has already been taken")
 
 class CreateUser_details(FlaskForm):
-    skills_title = StringField('Title',validators=[Required()])
-    description = TextAreaField('Write your skills post here',validators=[Required()])
+    skills_title = StringField('Title',validators=[InputRequired()])
+    description = TextAreaField('Write your skills post here',validators=[InputRequired()])
     charges = StringField('Charges') 
-    contact = StringField('Contact', validators=[Required()])
+    contact = StringField('Contact', validators=[InputRequired()])
     submit = SubmitField('Post') 
