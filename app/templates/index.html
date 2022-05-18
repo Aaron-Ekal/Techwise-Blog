@@ -33,23 +33,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                  
-                       
+                    </div>
                 {% endfor %}
 
-                {% for page_num in user_details.iter_pages(left_edge = 1, right_edge = 1, left_current=1, right_current = 2) %}
-                    {% if page_num %}
-                        {% if user_details.page == page_num %}
-                            <a href="{{url_for('main.index',page = page_num)}}" class="btn btn-sm btn-info mb-2">{{ page_num }}</a>
-                        {% else%}
-                        <a href="{{url_for('main.index',page = page_num)}}" class="btn btn-sm btn-outline-info mb-2">{{ page_num }}</a>
-                        {% endif %}
-                    {% else%}
-                        ...
-                    {% endif %}
-                {% endfor %}  
-
+                
             </div>
             <div class="col-md-4">
                 
@@ -69,3 +56,5 @@
             </div>
         </div>
     </div>
+
+{% endblock %}
