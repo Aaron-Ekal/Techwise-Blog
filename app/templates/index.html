@@ -19,10 +19,13 @@
                                     </div>
                                     <div class="card-title" style="text-align: center;">
 
-                                        <h4><a href="{{url_for('main.user_details',id = user_details.id)}}"  class="card-title">{{user_details.title | upper}}</a></h4>
+                                        <h4><a href="{{url_for('main.user_details',id = user_details.id)}}"  class="card-title">{{user_skills_title.title | upper}}</a></h4>
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-content">{{user_details.content}}</p>
+                                        <p class="card-content">{{user_details.name}}</p>
+                                        <p class="card-content">{{user_details.description}}</p>
+                                        <p class="card-content">{{user_details.charges}}</p>
+                                        <p class="card-content">{{user_details.contact}}</p>
                                     </div>
                                     <div class="card-footer">
                                         <p class="card-footer">Posted on : {{user_details.posted.strftime('%d-%m-%Y')}}</p>
