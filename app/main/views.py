@@ -95,7 +95,7 @@ def user_details(id):
 
 
 
-@main.route('/blog/<blog_id>/update', methods = ['GET','POST'])
+@main.route('/user_details/<user_details_id>/update', methods = ['GET','POST'])
 @login_required
 def update_user_details(user_details_id):
     user_details = User_details.query.get(user_details_id)
