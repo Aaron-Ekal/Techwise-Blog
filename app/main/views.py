@@ -3,7 +3,6 @@ from app.main import main
 from app.models import User,User_details,Comment,Subscriber
 from .forms import Update,CreateUser_details
 from .. import db
-from app.requests import get_quotes
 from flask_login import login_required,current_user
 from ..email import mail_message
 import secrets
@@ -14,8 +13,8 @@ from PIL import Image
 @main.route('/')
 def index():
     page = request.args.get('page',1, type = int )
-    user_details = User_details.query.order_by(User_details.posted.desc()).paginate(page = page, per_page = 3)
-    return render_template('index.html', user_details=user_details)
+    # user_details = User_details.query.order_by(User_details.posted.desc()).paginate(page = page, per_page = 3)
+    return render_template('index.html')
 
 
 def save_picture(form_picture):
