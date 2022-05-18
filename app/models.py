@@ -15,7 +15,7 @@ class User (UserMixin,db.Model):
     bio = db.Column(db.String(255),default ='My default Bio')
     profile_pic_path = db.Column(db.String(150),default ='default.png')
     hashed_password = db.Column(db.String(255),nullable = False)
-    user_details = db.relationship('user_details', backref='user', lazy='dynamic')
+    user_details = db.relationship('User_details', backref='user', lazy='dynamic')
     comment = db.relationship('Comment', backref='user', lazy='dynamic')
     
     @property
