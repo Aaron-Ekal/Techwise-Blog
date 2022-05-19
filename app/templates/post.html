@@ -8,8 +8,8 @@
                     
             </div>
             <div class="col-md-8">
-                {% for user_detail in user_details.items %}
-                    <div class="" >
+                {% for user_detail in user_details %}
+                    <div class="">
                         <hr>
                         <div class="row">
                             <div class="card" style="padding: 5%; background-color: transparent;">
@@ -17,7 +17,7 @@
                                     <img class=" user_details-img mr-10" src="{{ url_for('static', filename='img/' + user_details.user.profile_pic_path) }}">
                                 </div>
                                 <div class="card-title">
-                                    <p>By {{user_details.user.username}}</span>  on {{user_details.posted.strftime('%d-%m-%Y')}}</p>
+                                    <p>By {{user_detail.description}}</span>  on {{user_detail.posted.strftime('%d-%m-%Y')}}</p>
                                     <h3>Title: <a href="{{url_for('main.user_posts',id = user_details.id)}}">{{user_details.skills_title}}</a></h3>
 
                                 </div>
