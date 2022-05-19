@@ -25,4 +25,5 @@ def test():
     unittest.TextTestRunner(verbosity=5).run(tests)
 
 if __name__ == '__main__':
+
     manager.run()
