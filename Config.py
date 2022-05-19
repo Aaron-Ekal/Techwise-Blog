@@ -6,7 +6,7 @@ load_dotenv()
 class Config:
     
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://tellem:mko9@localhost/team4'
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://robert:1234@localhost/team4'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
@@ -20,11 +20,11 @@ class Config:
 
     
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://tellem:mko9@localhost/team4'
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://robert:1234@localhost/team4'
 
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://tellem:mko9@localhost/team4_test'
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://robert:1234@localhost/team4_test'
 
 
 class DevConfig(Config):

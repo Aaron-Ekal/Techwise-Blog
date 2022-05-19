@@ -7,12 +7,13 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-144351462-1');
+    gtag('config', 'UA-144351462-1'); 
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GainSkills</title>
+    
     {% block styles %}
     <link href="https://fonts.googleapis.com/css?family=El+Messiri|IBM+Plex+Sans|Prompt&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arimo|Farro|Livvic&display=swap" rel="stylesheet">
@@ -26,7 +27,8 @@
 </head>
 
 
-<body >
+<body style="background-image: url(https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+background-position: center center;background-size: cover;background-repeat: no-repeat; background-attachment: fixed;">
         {% block navbar %}
         {% include "navbar.html" %}
         {% endblock %}
@@ -36,7 +38,7 @@
         {% endblock %}
 
         
-   <footer>
+   <footer class="fixed-bottom" style="width: 100%; margin-top: 20px;">
         <div class="container">
           <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
@@ -64,7 +66,7 @@
                 </li>
               </ul>
               <p class="copyright text-muted text-center">
-                Copyright &copy; Techwise
+                Copyright &copy; 2022 | Techwise
               </p>
             </div>
           </div>
