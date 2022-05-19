@@ -13,8 +13,8 @@ from PIL import Image
 @main.route('/')
 def index():
     page = request.args.get('page',1, type = int )
-    # user_details = User_details.query.order_by(User_details.posted.desc()).paginate(page = page, per_page = 3)
-    return render_template('index.html')
+    user_details = User_details.query.all()
+    return render_template('index.html', user_details=user_details)
 
 
 def save_picture(form_picture):
@@ -88,7 +88,7 @@ def new_user_post():
 
 @main.route('/user_details/<id>')
 def user_details(id):
-    comments = Comment.query.filter_by(blog_id=id).all()
+    comments = Comment.query.filter_by(user_details_id=id).all()
     user_details = User_details.query.get(id)
     return render_template('post.html',user_details=user_details,comments=comments) 
 
@@ -160,4 +160,4 @@ def user_posts(username):
     user = User.query.filter_by(username=username).first()
     page = request.args.get('page',1, type = int )
     user_details = User_details.query.filter_by(user=user).order_by(User_details.posted.desc()).paginate(page = page, per_page = 4)
-    return render_template('post.html',user_details=user_details,user = user) 
+    return render_template('post.html',user_details=user_details,user = user)  
