@@ -5,7 +5,7 @@ from datetime import datetime
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(user_id)
+    return User.query.get(user_id) 
 
 class User (UserMixin,db.Model):
     __tablename__ = 'users'
@@ -58,13 +58,13 @@ class User_details(db.Model):
         db.session.delete(self)
         db.session.commit()
 
-    def get_user_details(id):
+    def get_user_details(id): 
         user_details = user_details.query.filter_by(id=id).first()
 
         return user_details
 
     def __repr__(self):
-        return f'user_details {self.title}'
+        return f'user_details {self.skills_title}'
 
 class Comment(db.Model):
     __tablename__='comments'
