@@ -1,10 +1,32 @@
 {% extends 'base.html'%}
 
 {% block content %}
-    <div class="container landing">
-        <div class="row ">
-            <div class="col-md-9 " style="text-align: center; margin-top: 20px;"><h2>Welcome To Techwise Website Where The Right Tutor Is A Click Away </h2></div> 
-        </div>
+<div class="container logo text-center mb-5">
+    <h1 class="text-center" style="color: white; margin-top: 100px;">Welcome To Techwise <span class="auto-type text-info"></span> </h1> 
+</div> 
+
+<div class="subscribe ">
+                
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST" >
+                    <div class="md-form form-group d-flex flex-row align-content-center">
+                        <label class="text-light mt-1 fs-5 ms-auto"> Subscribe to Techwise for more...</label>
+                                    <input type="email" class="align-items-center" style="width: 40%;" name ="subscriber" placeholder="Enter your email..." required>
+                                    <button class="btn btn-md btn-info mx-2" id="subs">Subscribe</button>
+                                </div> 
+                            </form>
+                        </div>
+                        <div class="col-md-2"></div> 
+                        </div>
+                    
+                    </div>
+
+                </div>
+
+
 
         <div class="row">
             <div class="col-md-8 ">
@@ -12,24 +34,23 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="card" style="padding: 5%;background-color: transparent;">
-                                    <div class="card-image">
+                                <div class="card d-flex flex-row" style="padding: 5%; background-color: #918378; color: black; opacity: 0.8; position: relative; left: 30%;">
+                                    <div class="card-image d-flex flex-column" style="margin-right: 50px;">
                                         <img class=" user-img mr-10" class="card-img" src="{{ url_for('static', filename='img/' + user.user.profile_pic_path) }}"height="250" width="250">
-                                        <a href="{{url_for('main.user_posts',username = user.user.username)}}"><span  style=" font-size: large;"><strong> {{ user.user.username | title}}</strong></span> </a>
-                                    </div>
+                                        <a href="{{url_for('main.user_posts',username = user.user.username)}}" style="text-decoration: none; margin-top: 15px"><span  style=" font-size: large; color: black;"><strong> Name: {{user.user.username | title}}</strong></span> </a> 
+                                    </div> 
                                     <div class="card-title" style="text-align: center;">
-
-                                        <h4><a href="{{url_for('main.user_posts',username = user.username)}}"  class="card-title">{{user.skills_title | upper}}</a></h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-content">{{user.name}}</p>
-                                        <p class="card-content">{{user.description}}</p>
-                                        <p class="card-content">{{user.charges}}</p>
-                                        <p class="card-content">{{user.contact}}</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <p class="card-footer">Posted on : {{user.posted.strftime('%d-%m-%Y')}}</p>
-                                        <p> <a class="btn btn-sm btn-info" href="{{url_for('main.user_details',id = user.id)}}" > Comment</a> {{user.comment.count()}} Comments</p>
+                                        <div class="user-skills">
+                                            <h4><a href="{{url_for('main.user_posts',username = user.username)}}"  class="card-title" style="color: black;; font-weight: bold; text-decoration: none;">{{user.skills_title | upper}}</a></h4>
+                                        </div>
+                                        <div class="details">  
+                                            <p class="card-content">{{user.name}}</p>
+                                            <p class="card-content">{{user.description}}</p>
+                                            <p class="card-content"><span style="font-weight: bold;">Charges</span>: {{user.charges}}</p>
+                                            <p class="card-content"><span style="font-weight: bold;">Contact</span>: {{user.contact}}</p>
+                                            <p class="card-footer" style="color: black;;">Posted on : {{user.posted.strftime('%d-%m-%Y')}}</p>
+                                            <p style="color: black;"> <a class="btn btn-sm btn-info" href="{{url_for('main.user_details',id = user.id)}}"> Comment</a> {{user.comment.count()}} Comments</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -37,22 +58,6 @@
                 {% endfor %}
 
                 
-            </div>
-            <div class="col-md-4">
-                
-                <div class="container-fluid">
-                    
-                    <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST" >
-                        <div class="md-form form-group">
-                            <label class="white-color"></label>
-                            <input type="email"  class="form-control " name ="subscriber" placeholder="enter your email..." required>
-                        </div>
-                        <div class="md-form form-group">
-                            <button class="btn btn-md btn-info" id="subs">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-
             </div>
         </div>
     </div>

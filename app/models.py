@@ -46,6 +46,8 @@ class User_details(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     skills_title = db.Column(db.String(255),nullable=False)
     description = db.Column(db.Text(),nullable=False)
+    charges = db.Column(db.String) 
+    contact = db.Column(db.String) 
     posted = db.Column(db.DateTime,default=datetime.utcnow)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     comment = db.relationship('Comment', backref='user_details', lazy='dynamic')

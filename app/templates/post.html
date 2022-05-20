@@ -4,31 +4,29 @@
     <div class="container">
         <h1 class="text-center mb-2">{{user.user_details.count()}} Posts by {{ user.username }} </h1>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2"> 
                     
             </div>
             <div class="col-md-8">
-                {% for user_detail in user_details %}
+                {% for user in user_details %}
                     <div class="">
                         <hr>
                         <div class="row">
                             <div class="card" style="padding: 5%; background-color: transparent;">
                                 <div class="card-image">
-                                    <img class=" user_details-img mr-10" src="{{ url_for('static', filename='img/' + user_details.user.profile_pic_path) }}">
+                                    <img class=" user-img mr-10" src="{{ url_for('static', filename='img/' + user.user.profile_pic_path) }}">
                                 </div>
                                 <div class="card-title">
-                                    <p>By {{user_detail.description}}</span>  on {{user_detail.posted.strftime('%d-%m-%Y')}}</p>
-                                    <h3>Title: <a href="{{url_for('main.user_posts',id = user_details.id)}}">{{user_details.skills_title}}</a></h3>
+                                    <p>By {{user.description}}</span>  on {{user.posted.strftime('%d-%m-%Y')}}</p>
+                                    <h3>Title: <a href="{{url_for('main.user_posts',id = user.id)}}">{{user.skills_title}}</a></h3>
 
                                 </div>
                                 <div class="card-content">               
-                                    <p >{{user_details.name}}</p>
-                                    <p >{{user_details.description}}</p>
-                                    <p>{{user_details.charges}}</p>
+                                    <p >{{user.name}}</p>
+                                    <p >{{user.description}}</p>
+                                    <p>{{user.charges}}</p>
+                                    <p >{{user.contact}}</p>
                                     
-                                </div>
-                                <div class="card-footer">
-                                    <p >{{user_details.contact}}</p>
                                 </div>
                             </div>
                             

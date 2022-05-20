@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-dark navbarbg bg-dark fixed-top mb-1">
-  <a class="navbar-brand" href="{{url_for('main.index')}}" style="font-size: x-large;"><strong>Techwise</strong> </a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> 
+  <a class="navbar-brand" href="{{url_for('main.index')}}" style="font-size: x-large; margin-left: 25px;"><strong><h2>Techwise</h2> </strong> </a> 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button> 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-          <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse mr-4" id="navbarSupportedContent-4">
+          <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="{{url_for('main.index')}}">View All Tutors</a>
+                <a class="nav-link" href="{{url_for('main.index')}}" style="margin-right: 30px;">View All Tutors</a>
               </li>
               {% if current_user.is_authenticated %}
               <li class="nav-item">
@@ -19,7 +19,7 @@
           {% if current_user.is_authenticated %}
 
           <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" style= 'margin-right:30px' data-toggle="dropdown"
+          <a class="nav-link dropdown-toggle" style= 'margin-right:30px' data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user"></i>&nbsp;<strong>{{current_user.username}}</strong> </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
@@ -29,10 +29,10 @@
           </li>
           {% else %}
             <li class="nav-item">
-                <a  class="nav-link mr-1" href="{{url_for('auth.signup')}}"><i class="fas fa-user-plus"></i></i>&nbsp; <strong>Sign Up</strong></a>
+                <a  class="nav-link mr-1" href="{{url_for('auth.signup')}}" style= 'margin-right:30px'><i class="fas fa-user-plus"></i></i>&nbsp; <strong>Sign Up</strong></a>
             </li>
             <li class="nav-item">
-                <a  class="nav-link mr-5" href="{{url_for('auth.login')}}" ><i class="fas fa-sign-in-alt "></i>&nbsp; <strong>Log In</strong></a>
+                <a  class="nav-link mr-5" href="{{url_for('auth.login')}}" style= 'margin-right:30px'><i class="fas fa-sign-in-alt "></i>&nbsp; <strong>Log In</strong></a>
             </li>
           {%endif%}
 

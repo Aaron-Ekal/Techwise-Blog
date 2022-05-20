@@ -27,4 +27,4 @@ class CreateUser_details(FlaskForm):
     description = TextAreaField('Write your skills post here',validators=[InputRequired()])
     charges = StringField('Charges') 
     contact = StringField('Contact', validators=[InputRequired()])
-    submit = SubmitField('Post') 
+    submit = SubmitField('Post')  
