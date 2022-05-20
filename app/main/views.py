@@ -7,7 +7,7 @@ from flask_login import login_required,current_user
 from ..email import mail_message
 import secrets
 import os
-from PIL import Image  
+from PIL import Image   
 
 
 @main.route('/')
@@ -75,8 +75,12 @@ def new_user_post():
     if form.validate_on_submit():
         skills_title = form.skills_title.data
         description = form.description.data
+        
+        charges = form.charges.data 
+        contact = form.contact.data 
+
         user_id =  current_user._get_current_object().id
-        user_details = User_details(skills_title=skills_title,description=description,user_id=user_id)
+        user_details = User_details(skills_title=skills_title,description=description,charges=charges, contact=contact, user_id=user_id)
         user_details.save()
         for subscriber in subscribers:
             mail_message("New skills post","email/new_skills",subscriber.email,user_details=user_details)
@@ -110,7 +114,7 @@ def update_user_details(user_details_id):
     if request.method == 'GET':
         form.skills_title_data = user_details.skills_title
         form.description.data = user_details.description
-    return render_template('post.html', form = form) 
+    return render_template('post.html', form = form)  
 
 
 
@@ -138,7 +142,7 @@ def subscribe():
     email = request.form.get('subscriber')
     new_subscriber = Subscriber(email = email)
     new_subscriber.save_subscriber()
-    mail_message("Subscribed to Techwise-Blog","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
+    mail_message("Subscribed to Techwise-Blog","email/welcome",new_subscriber.email,new_subscriber=new_subscriber)
     flash('Sucessfuly subscribed')
     return redirect(url_for('main.index'))
 
