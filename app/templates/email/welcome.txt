@@ -1,2 +1,2 @@
-Hello {{user.username}}, Welcome to Techwise..
+Hello {{user.username}}, Welcome to Techwise...
 We are thrilled to have you as our supporter.
